@@ -133,6 +133,9 @@ void main() {
                     //TECLA 2
                     if (op == 2) {
                         removeMeal(posMeal);
+                        if(posMeal == dispo){
+                            posMeal--;
+                        }
                     }
                 }
 
@@ -169,7 +172,7 @@ void main() {
                                 lcdData(msg1[i]);
                         }
                     } else {
-                        if (posMeal != 0) {
+                        if (posMeal > 0) {
                             posMeal--;
                         } else {
                             posMeal = dispo - 1;
@@ -211,7 +214,7 @@ void main() {
                                 lcdData(msg1[i]);
                             }
                         } else {
-                            if (posMeal != (dispo - 1)) {
+                            if (posMeal < (dispo - 1)) {
                                 posMeal++;
                             } else {
                                 posMeal = 0;
@@ -288,7 +291,7 @@ void main() {
                 }
             }
 
-            if ((op == 2) && (cont % 200 == 0)) {
+            if ((op == 2) && (cont % 300 == 0)) {
                 if (dispo == 0) {
                     lcdCommand(CLR);
                     lcdCommand(L0);
